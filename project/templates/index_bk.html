@@ -1,0 +1,264 @@
+{% from "_formshelper.html" import render_field %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Saber in Vietnam</title>
+    <meta name="description" content="Saber in Vietnam">
+    <meta name="keywords" content="Saber in Vietnam">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='logo.png') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+	    Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css') }}">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.min.css') }}">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.min.css') }}">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!--==============================
+    Preloader
+    ==============================-->
+    <div class="preloader ">
+        <div class="preloader-inner">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    <!--==============================
+    Side menu
+    ============================== -->
+    <div class="sidemenu-wrapper sidemenu-info ">
+        <div class="sidemenu-content">
+            <!-- <button class="closeButton sideMenuCls"><i class="fas fa-times"></i></button> -->
+            <div class="widget  ">
+                <div class="th-widget-about">
+                    <div class="pricing-card_icon">
+                        <img src="{{ url_for('static', filename='QR.png') }}" alt="Saber Mid">
+                    </div>
+
+                    <p class="about-text" style="text-align: center;">Quét mã để liên hệ trực tiếp hoặc điền vào đơn
+                        dưới đây.</p>
+                    <h4 class="wcu-card-title">Thông tin đặt hàng</h4>
+                    <form action="{{ url_for('main.index') }}" method="post">
+                        {{ form.csrf_token }}
+                        <div class="comment-form mb-10">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <!-- <input type="text" placeholder="Tên" class="form-control style-border"> -->
+                                    {{ render_field(form.full_name, class="form-control style-border",
+                                    placeholder="Tên") }}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    {{ render_field(form.email, class="form-control style-border", placeholder="Email")
+                                    }}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    {{ render_field(form.mobile, class="form-control style-border",
+                                    placeholder="Mobile") }}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <select name="subject" id="subject" class="form-select style-border">
+                                        <option value="" selected="">Vui lòng chọn ...</option>
+                                        <option value="mid">Saber Mid</option>
+                                        <option value="lite">Saber Lite</option>
+                                        <option value="both">Cả hai</option>
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                                <div class="col-12 form-group">
+                                    {{ render_field(form.note, class="form-control style-border", placeholder="Nhập lời
+                                    nhắn..") }}
+                                </div>
+                                <div class="col-12 form-group mb-0">
+                                    <button class="global-btn center">Send Now<img
+                                            src="{{ url_for('static', filename='img/icon/right-icon.svg') }}"
+                                            alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==============================
+	Header Area
+    ==============================-->
+    <header class="nav-header header-layout1">
+        <div class="sticky-wrapper">
+            <!-- Main Menu Area -->
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="header-logo">
+                            <a href="{{ url_for('main.index') }}"><img
+                                    src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="header-wrapper">
+                            <div class="social-btn saber">
+                                <a href="https://www.instagram.com/stephenhuynh.tennis/">
+                                        <i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@tennisplayer69"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.facebook.com/MrLoneli"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <!--==============================
+    Flash Message - Auto Close Alert
+    ==============================-->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="container-sm mt-4">
+                {% for message in messages %}
+                    <!-- Start DEMO HTML (Use the following code into your project)-->
+                    <div class="auto-close alert alert-success" role="alert">
+                        <!-- <h4 class="alert-heading">Well done!</h4> -->
+                        <p class="mb-0">{{ message }}</p>
+                    </div>
+                    <!-- END EDMO HTML (Happy Coding!)-->
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!--==============================
+    Main Area
+    ==============================-->
+    {% block content %}
+        <div class="service-area-2 space">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="hero-style1">
+                            <h1 class="hero-title">1% Better Everyday</h1>
+                            <p class="hero-text">The only training aid that makes you a more consistent tennis player.<br>
+                                Improve your footwork, swing and levels of focus with The Saber.
+                            </p>
+                            <div class="pricing-card">
+                                <div class="pricing-card-price-wrap">
+                                    <h3 class="pricing-card_title"><span class="currency">
+                                        </span>5.300.000 VND<span class="duration">/racket</span>
+                                    </h3>
+                                </div>
+
+                                <div class="pricing-card-details">
+                                    <div class="checklist">
+                                        <ul>
+                                            <li><i class="fas fa-angle-double-right"></i>Saber Mid: 300 grams unstrung (312g
+                                                strung)</li>
+                                            <li><i class="fas fa-angle-double-right"></i>Saber Lite: 265 grams unstrung
+                                                (277g strung)</li>
+                                        </ul>
+                                    </div>
+                                    <a class="global-btn sideMenuToggler" href="#">Get Now<img
+                                            src="assets/img/icon/right-icon2.svg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div class="hero-image-wrapp" style="margin: auto;">
+                            <img src="{{ url_for('static', filename='Saber_0001_750x.jpg') }}" alt="Saber Mid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    <!--==============================
+    Footer
+    ==============================-->
+    <footer class="footer-wrapper footer-layout4">
+        <div class="container">
+            <div class="copyright-wrap">
+                <div class="row gy-3 justify-content-lg-between justify-content-center">
+                    <div class="col-auto align-self-center">
+                        <p class="copyright-text text-center">© <a href="#">Saber </a> 2024 | All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--==============================
+    Scroll to Top
+    ==============================-->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+
+    <!-- Jquery -->
+    <script src="{{ url_for('static', filename='js/vendor/jquery-3.6.0.min.js') }}"></script>
+    <!-- Slick Slider -->
+    <script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+    <!-- Range Slider -->
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- Magnific Popup -->
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <!-- Counter Up -->
+    <script src="{{ url_for('static', filename='js/jquery.counterup.min.js') }}"></script>
+    <!-- Marquee -->
+    <script src="{{ url_for('static', filename='js/jquery.marquee.min.js') }}"></script>
+    <!-- Isotope Filter -->
+    <script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+
+    <!-- Main Js File -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <!-- Script Auto Close Alert JS -->
+    <script src="{{ url_for('static', filename='js/autoCloseAlert.js') }}"></script>
+
+</body>
+
+</html>

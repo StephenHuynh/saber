@@ -1,0 +1,168 @@
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Saber in Vietnam</title>
+    <meta name="description" content="Saber in Vietnam">
+    <meta name="keywords" content="Saber in Vietnam">
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='logo.png') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+	    Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css') }}">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.min.css') }}">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slick.min.css') }}">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!--==============================
+    Preloader
+    ==============================-->
+    <div class="preloader ">
+        <div class="preloader-inner">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    
+    <!--==============================
+	Header Area
+    ==============================-->
+    <header class="nav-header header-layout1">
+        <div class="sticky-wrapper">
+            <!-- Main Menu Area -->
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="header-logo">
+                            <a href="{{ url_for('main.index') }}"><img
+                                    src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="header-wrapper">
+                            <div class="social-btn saber">
+                                <a href="https://www.instagram.com/stephenhuynh.tennis/">
+                                        <i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@tennisplayer69"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.facebook.com/MrLoneli"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <!--==============================
+    Flash Message - Auto Close Alert
+    ==============================-->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="container-sm mt-4">
+                {% for message in messages %}
+                    <!-- Start DEMO HTML (Use the following code into your project)-->
+                    <div class="auto-close alert alert-success" role="alert">
+                        <!-- <h4 class="alert-heading">Well done!</h4> -->
+                        <p class="mb-0">{{ message }}</p>
+                    </div>
+                    <!-- END EDMO HTML (Happy Coding!)-->
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!--==============================
+    Main Area
+    ==============================-->
+    {% block content %}
+       
+    {% endblock %}
+
+    <!--==============================
+    Footer
+    ==============================-->
+    <footer class="footer-wrapper footer-layout4">
+        <div class="container">
+            <div class="copyright-wrap">
+                <div class="row gy-3 justify-content-lg-between justify-content-center">
+                    <div class="col-auto align-self-center">
+                        <p class="copyright-text text-center">© <a href="#">Saber </a> 2024 | All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--==============================
+    Scroll to Top
+    ==============================-->
+    <div class="scroll-top">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+
+    <!-- Jquery -->
+    <script src="{{ url_for('static', filename='js/vendor/jquery-3.6.0.min.js') }}"></script>
+    <!-- Slick Slider -->
+    <script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+    <!-- Range Slider -->
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- Magnific Popup -->
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <!-- Counter Up -->
+    <script src="{{ url_for('static', filename='js/jquery.counterup.min.js') }}"></script>
+    <!-- Marquee -->
+    <script src="{{ url_for('static', filename='js/jquery.marquee.min.js') }}"></script>
+    <!-- Isotope Filter -->
+    <script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+
+    <!-- Main Js File -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <!-- Script Auto Close Alert JS -->
+    <script src="{{ url_for('static', filename='js/autoCloseAlert.js') }}"></script>
+
+</body>
+
+</html>

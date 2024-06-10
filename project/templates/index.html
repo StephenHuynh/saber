@@ -1,0 +1,104 @@
+{% extends "_base.html" %}
+{% from "_formshelper.html" import render_field %}
+
+
+{% block content %}
+    <!--==============================
+    Side menu
+    ============================== -->
+    <div class="sidemenu-wrapper sidemenu-info ">
+        <div class="sidemenu-content">
+            <!-- <button class="closeButton sideMenuCls"><i class="fas fa-times"></i></button> -->
+            <div class="widget  ">
+                <div class="th-widget-about">
+                    <div class="pricing-card_icon">
+                        <img src="{{ url_for('static', filename='QR.png') }}" alt="Saber Mid">
+                    </div>
+
+                    <p class="about-text" style="text-align: center;">Quét mã để liên hệ trực tiếp hoặc điền vào đơn
+                        dưới đây.</p>
+                    <h4 class="wcu-card-title">Thông tin đặt hàng</h4>
+                    <form action="{{ url_for('main.index') }}" method="post">
+                        {{ form.csrf_token }}
+                        <div class="comment-form mb-10">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <!-- <input type="text" placeholder="Tên" class="form-control style-border"> -->
+                                    {{ render_field(form.full_name, class="form-control style-border",
+                                    placeholder="Tên") }}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    {{ render_field(form.email, class="form-control style-border", placeholder="Email")
+                                    }}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    {{ render_field(form.mobile, class="form-control style-border",
+                                    placeholder="Mobile") }}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <select name="subject" id="subject" class="form-select style-border">
+                                        <option value="" selected="">Vui lòng chọn ...</option>
+                                        <option value="mid">Saber Mid</option>
+                                        <option value="lite">Saber Lite</option>
+                                        <option value="both">Cả hai</option>
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                                <div class="col-12 form-group">
+                                    {{ render_field(form.note, class="form-control style-border", placeholder="Nhập lời nhắn..") }}
+                                </div>
+                                <div class="col-12 form-group mb-0">
+                                    <button class="global-btn center">Send Now<img
+                                            src="{{ url_for('static', filename='img/icon/right-icon.svg') }}"
+                                            alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==============================
+    Main Area
+    ==============================-->
+    <div class="service-area-2 space">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="hero-style1">
+                        <h1 class="hero-title">1% Better Everyday</h1>
+                        <p class="hero-text">The only training aid that makes you a more consistent tennis player.<br>
+                            Improve your footwork, swing and levels of focus with The Saber.
+                        </p>
+                        <div class="pricing-card">
+                            <div class="pricing-card-price-wrap">
+                                <h3 class="pricing-card_title"><span class="currency">
+                                    </span>5,200,000 VND<span class="duration">/cây</span>
+                                </h3>
+                            </div>
+
+                            <div class="pricing-card-details">
+                                <div class="checklist">
+                                    <ul>
+                                        <li><i class="fas fa-angle-double-right"></i>Saber Mid: 312g (luôn dây)</li>
+                                        <li><i class="fas fa-angle-double-right"></i>Saber Lite: 277g (luôn dây)</li>
+                                    </ul>
+                                </div>
+                                <a class="global-btn sideMenuToggler" href="#">Get Now<img
+                                        src="assets/img/icon/right-icon2.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <div class="hero-image-wrapp" style="margin: auto;">
+                        <img src="{{ url_for('static', filename='Saber_0001_750x.jpg') }}" alt="Saber Mid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}    
